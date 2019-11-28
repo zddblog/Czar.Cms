@@ -25,7 +25,7 @@ namespace General.Services.Category
         public DbSet<Entities.Category.Category> Entities
         {
             get
-            {
+            { 
                 return _repository.Entities;
             }
         }
