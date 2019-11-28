@@ -1,44 +1,45 @@
-﻿using General.Entities;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
+using General.Core.Data;
+using General.Entities.Category;
+using Microsoft.EntityFrameworkCore;
 
 namespace General.Services.Category
 {
-    public class CategoryService : ICategoryService
+    public class CategoryService :ICategoryService
     {
-        private readonly GeneralDbContext _generalDbContext;
-        public CategoryService(GeneralDbContext generalDbContext)
+        private IRepository<Entities.Category.Category> _repository;
+        public CategoryService(IRepository<Entities.Category.Category> repository)
         {
-            _generalDbContext = generalDbContext;
+            this._repository = repository;
         }
+
+        public DbContext dbContext => throw new System.NotImplementedException();
+
+        public DbSet<Entities.Category.Category> Entities => throw new System.NotImplementedException();
 
         public void Add(Entities.Category.Category TModel)
         {
-            _generalDbContext.Categories.Add(TModel);
-            _generalDbContext.SaveChanges();
+            throw new System.NotImplementedException();
         }
 
-        public void Delete(int Id)
+        public void Delete(object Id)
         {
-            var ret = GetSingle(Id);
-            _generalDbContext.Set<Entities.Category.Category>().Remove(ret);
-            _generalDbContext.SaveChangesAsync();
+            throw new System.NotImplementedException();
         }
 
-        public List<Entities.Category.Category> GetList()
+        public IEnumerable<Entities.Category.Category> GetList()
         {
-            return _generalDbContext.Categories.ToList();
+            throw new System.NotImplementedException();
         }
 
-        public Entities.Category.Category GetSingle(int Id)
+        public Entities.Category.Category GetSingle(object Id)
         {
-            return _generalDbContext.Categories.SingleOrDefault(c => c.Id == Id);
+            throw new System.NotImplementedException();
         }
 
         public void Update(Entities.Category.Category TModel)
         {
-            _generalDbContext.Categories.Update(TModel);
-            _generalDbContext.SaveChanges();
+            throw new System.NotImplementedException();
         }
     }
 }

@@ -1,16 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using General.Core.Data;
+
 namespace General.Services.Category
 {
-    public interface ICategoryService
+    public interface ICategoryService:IRepository<Entities.Category.Category>
     {
-        void Add(Entities.Category.Category TModel);
-
-        void Delete(int Id);
-         
-        void Update(Entities.Category.Category TModel);
-        Entities.Category.Category GetSingle(int Id);
-
-        //IEnumerable<Entities.Category.Category> GetList();
-        List<Entities.Category.Category> GetList();
     }
 }

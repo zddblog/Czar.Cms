@@ -1,4 +1,5 @@
 ﻿using General.Core;
+using General.Core.Data;
 using General.Entities;
 using General.Services.Category;
 using Microsoft.AspNetCore.Builder;
@@ -18,30 +19,25 @@ namespace GeneralMVC
 
         public IConfiguration Configuration { get; }
 
-     
+
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.Configure<CookiePolicyOptions>(options =>
-            //{
-
-            //    options.CheckConsentNeeded = context => true;
-            //    options.MinimumSameSitePolicy = SameSiteMode.None;
-            //});
-
-
-            //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
 
             var constr = Configuration.GetConnectionString("Defaultconnection");
             services.AddMvc();
-            services.AddDbContextPool<GeneralDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Defaultconnection")));
+            services.AddDbContext<GeneralDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Defaultconnection")));
             services.AddAuthentication();
+
+            //单个注入
             services.AddScoped<ICategoryService,CategoryService>();
-        //    services.BuildServiceProvider().GetService<ICategoryService>();
+
+            //泛型注入
+            services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
+            //    services.BuildServiceProvider().GetService<ICategoryService>();
             EngineContext.Initialize(new GeneralEngin(services.BuildServiceProvider()));
         }
 
-       
+
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
@@ -52,10 +48,8 @@ namespace GeneralMVC
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-
             app.UseStaticFiles();
-            // app.UseCookiePolicy();
-            app.UseAuthentication(); 
+            app.UseAuthentication();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

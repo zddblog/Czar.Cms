@@ -14,10 +14,7 @@ namespace GeneralMVC.Controllers
         {
             //_categoryService = EngineContext.Current.Resolve<ICategoryService>();
             //var list = _categoryService.GetList();
-
-
-            _categoryService = EngineContext.Current.Resolve<ICategoryService>();
-            var list = _categoryService.GetList();
+            _categoryService.GetList();
             return View();
         }
 
