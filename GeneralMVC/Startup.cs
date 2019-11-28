@@ -39,6 +39,7 @@ namespace GeneralMVC
             services.AddAuthentication();
             services.AddSingleton<ICategoryService,CategoryService>();
             services.BuildServiceProvider().GetService<ICategoryService>();
+            new GeneralEngin(services.BuildServiceProvider());
         }
 
        
