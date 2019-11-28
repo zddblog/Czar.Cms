@@ -12,9 +12,9 @@ namespace GeneralMVC.Controllers
    
         public IActionResult Index()
         {
-            //_categoryService = EngineContext.Current.Resolve<ICategoryService>();
+            _categoryService = EngineContext.Current.Resolve<ICategoryService>();
             //var list = _categoryService.GetList();
-            _categoryService.GetList();
+            _categoryService.getList();
             return View();
         }
 

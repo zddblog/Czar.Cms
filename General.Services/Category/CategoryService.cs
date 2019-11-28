@@ -5,41 +5,53 @@ using Microsoft.EntityFrameworkCore;
 
 namespace General.Services.Category
 {
-    public class CategoryService :ICategoryService
+    public class CategoryService : ICategoryService
     {
         private IRepository<Entities.Category.Category> _repository;
+
+
         public CategoryService(IRepository<Entities.Category.Category> repository)
         {
             this._repository = repository;
         }
+        public DbContext dbContext
+        {
+            get
+            {
+                return _repository.dbContext;
+            }
+        }
 
-        public DbContext dbContext => throw new System.NotImplementedException();
-
-        public DbSet<Entities.Category.Category> Entities => throw new System.NotImplementedException();
-
+        public DbSet<Entities.Category.Category> Entities
+        {
+            get
+            {
+                return _repository.Entities;
+            }
+        }
         public void Add(Entities.Category.Category TModel)
         {
-            throw new System.NotImplementedException();
+            _repository.Add(TModel);
         }
 
         public void Delete(object Id)
         {
-            throw new System.NotImplementedException();
+            _repository.Delete(Id);
         }
 
         public IEnumerable<Entities.Category.Category> GetList()
         {
-            throw new System.NotImplementedException();
+            return _repository.GetList();
         }
 
         public Entities.Category.Category GetSingle(object Id)
         {
-            throw new System.NotImplementedException();
+            return _repository.GetSingle(Id);
         }
 
         public void Update(Entities.Category.Category TModel)
         {
-            throw new System.NotImplementedException();
+            _repository.Update(TModel);
         }
     }
 }
