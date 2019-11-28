@@ -1,11 +1,8 @@
-﻿using General.Entities;
-using General.Entities.Category;
+﻿using General.Core;
+using General.Entities;
 using General.Services.Category;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,12 +31,14 @@ namespace GeneralMVC
 
             //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+
+            var constr = Configuration.GetConnectionString("Defaultconnection");
             services.AddMvc();
             services.AddDbContextPool<GeneralDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Defaultconnection")));
             services.AddAuthentication();
-            services.AddSingleton<ICategoryService,CategoryService>();
-            services.BuildServiceProvider().GetService<ICategoryService>();
-            new GeneralEngin(services.BuildServiceProvider());
+            services.AddScoped<ICategoryService,CategoryService>();
+        //    services.BuildServiceProvider().GetService<ICategoryService>();
+            EngineContext.Initialize(new GeneralEngin(services.BuildServiceProvider()));
         }
 
        

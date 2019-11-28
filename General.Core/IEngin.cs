@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace General.Core
+﻿namespace General.Core
 {
     /// <summary>
     /// 系统引擎接口
     /// </summary>
-   public interface IEngin
+    public interface IEngin
     {
 
         /// <summary>
