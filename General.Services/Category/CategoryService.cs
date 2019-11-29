@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using General.Core.Data;
-using General.Entities.Category;
+﻿using General.Core.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace General.Services.Category
 {
