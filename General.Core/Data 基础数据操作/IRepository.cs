@@ -41,7 +41,7 @@ namespace General.Core.Data
         /// <returns></returns>
         T GetSingle(object Id);
 
-      
+
         /// <summary>
         /// 返回列表
         /// </summary>

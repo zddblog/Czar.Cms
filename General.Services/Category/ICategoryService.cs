@@ -2,7 +2,7 @@
 
 namespace General.Services.Category
 {
-    public interface ICategoryService:IRepository<Entities.Category.Category>
+    public interface ICategoryService : IRepository<Entities.Category.Category>
     {
     }
 }

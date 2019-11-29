@@ -19,14 +19,18 @@ namespace General.Entities
             this._generalDbContext = generalDbContext;
         }
 
-        public DbContext dbContext {
-            get {
+        public DbContext dbContext
+        {
+            get
+            {
                 return _generalDbContext;
             }
         }
 
-        public DbSet<T> Entities {
-            get {
+        public DbSet<T> Entities
+        {
+            get
+            {
                 return _generalDbContext.Set<T>();
             }
         }
@@ -41,12 +45,12 @@ namespace General.Entities
         {
             var entity = GetSingle(Id);
 
-            if (entity!=null)
+            if (entity != null)
             {
                 _generalDbContext.Set<T>().Remove(entity);
                 _generalDbContext.SaveChanges();
             }
-          
+
         }
 
         public IEnumerable<T> GetList()
@@ -56,7 +60,7 @@ namespace General.Entities
 
         public T GetSingle(object Id)
         {
-            return  _generalDbContext.Set<T>().Find(Id);
+            return _generalDbContext.Set<T>().Find(Id);
         }
 
         public void Update(T TModel)

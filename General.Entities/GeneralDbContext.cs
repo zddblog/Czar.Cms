@@ -2,9 +2,9 @@
 
 namespace General.Entities
 {
-    public  class GeneralDbContext:DbContext
+    public class GeneralDbContext : DbContext
     {
-        public GeneralDbContext(DbContextOptions dbContextOptions):base(dbContextOptions)
+        public GeneralDbContext(DbContextOptions dbContextOptions) : base(dbContextOptions)
         {
 
         }

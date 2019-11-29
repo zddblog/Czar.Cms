@@ -11,6 +11,6 @@
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        T Resolve<T>() where T:class;
+        T Resolve<T>() where T : class;
     }
 }

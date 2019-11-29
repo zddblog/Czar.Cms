@@ -29,7 +29,7 @@ namespace GeneralMVC
             services.AddAuthentication();
 
             //单个注入
-            services.AddScoped<ICategoryService,CategoryService>();
+            services.AddScoped<ICategoryService, CategoryService>();
 
             //泛型注入
             services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));

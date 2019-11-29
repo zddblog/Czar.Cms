@@ -9,12 +9,12 @@ namespace GeneralMVC.Controllers
     public class HomeController : Controller
     {
         private ICategoryService _categoryService;
-   
+
         public IActionResult Index()
         {
             _categoryService = EngineContext.Current.Resolve<ICategoryService>();
             //var list = _categoryService.GetList();
-          var  ss=  _categoryService.GetList();
+            var ss = _categoryService.GetList();
             return View();
         }
 

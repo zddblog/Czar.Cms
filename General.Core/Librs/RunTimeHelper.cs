@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Text;
-namespace General.Core.Librs
+﻿namespace General.Core.Librs
 {
 
     /// <summary>
@@ -10,8 +6,9 @@ namespace General.Core.Librs
     /// </summary>
     public class RunTimeHelper
     {
-        public static void GetAssemblyByName(string assemblyName) { 
-            
+        public static void GetAssemblyByName(string assemblyName)
+        {
+
         }
     }
 }

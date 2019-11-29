@@ -12,7 +12,7 @@ namespace GeneralMVC
         {
             this._serviceProvider = serviceProvider;
         }
-        
+
 
         /// <summary>
         /// 构建实例
