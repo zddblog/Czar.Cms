@@ -1,15 +1,12 @@
 ﻿using General.Core;
 using General.Core.Data;
-using General.Core.Librs;
+using General.Core.Extensions;
 using General.Entities;
-using General.Services.Category;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System.Linq;
-using General.Core.Extensions;
 namespace GeneralMVC
 {
     public class Startup
