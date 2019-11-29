@@ -1,5 +1,6 @@
 ﻿using General.Core;
 using General.Core.Data;
+using General.Core.Librs;
 using General.Entities;
 using General.Services.Category;
 using Microsoft.AspNetCore.Builder;
@@ -7,7 +8,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-
+using System.Linq;
+using General.Core.Extensions;
 namespace GeneralMVC
 {
     public class Startup
@@ -29,7 +31,10 @@ namespace GeneralMVC
             services.AddAuthentication();
 
             //单个注入
-            services.AddScoped<ICategoryService, CategoryService>();
+           // services.AddScoped<ICategoryService, CategoryService>();
+
+            //程序集依赖注入
+            services.AddAssembly("General.Services");
 
             //泛型注入
             services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));

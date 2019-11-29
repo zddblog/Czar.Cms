@@ -1,5 +1,4 @@
-﻿using General.Core;
-using General.Services.Category;
+﻿using General.Services.Category;
 using GeneralMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -8,13 +7,20 @@ namespace GeneralMVC.Controllers
 {
     public class HomeController : Controller
     {
-        private ICategoryService _categoryService;
+        private readonly ICategoryService _categoryService;
 
+
+        public HomeController(ICategoryService categoryService)
+        {
+           this._categoryService = categoryService;
+        }
         public IActionResult Index()
         {
-            _categoryService = EngineContext.Current.Resolve<ICategoryService>();
-            //var list = _categoryService.GetList();
-            var ss = _categoryService.GetList();
+            //_categoryService = EngineContext.Current.Resolve<ICategoryService>();
+            ////var list = _categoryService.GetList();
+            //var ss = _categoryService.getList();
+
+            var ss = _categoryService.getList();
             return View();
         }
 

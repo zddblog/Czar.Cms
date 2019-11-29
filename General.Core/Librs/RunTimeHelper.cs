@@ -1,4 +1,7 @@
-﻿namespace General.Core.Librs
+﻿using System.Reflection;
+using System.Runtime.Loader;
+
+namespace General.Core.Librs
 {
 
     /// <summary>
@@ -6,9 +9,15 @@
     /// </summary>
     public class RunTimeHelper
     {
-        public static void GetAssemblyByName(string assemblyName)
-        {
 
+        /// <summary>
+        /// 通过程序集的名称加载程序集
+        /// </summary>
+        /// <param name="assemblyName"></param>
+        /// <returns></returns>
+        public static Assembly  GetAssemblyByName(string assemblyName)
+        {
+           return AssemblyLoadContext.Default.LoadFromAssemblyName(new AssemblyName(assemblyName));
         }
     }
 }
