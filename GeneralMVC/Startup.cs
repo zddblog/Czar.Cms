@@ -33,7 +33,7 @@ namespace GeneralMVC
             //程序集依赖注入
             services.AddAssembly("General.Services");
 
-            //泛型注入
+            //仓储泛型依赖注入
             services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
             //    services.BuildServiceProvider().GetService<ICategoryService>();
             EngineContext.Initialize(new GeneralEngin(services.BuildServiceProvider()));
