@@ -1,11 +1,12 @@
-﻿using General.Services.Category;
+﻿using General.Framework.Cotrollers;
+using General.Services.Category;
 using GeneralMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace GeneralMVC.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController :BaseController
     {
         private readonly ICategoryService _categoryService;
 
