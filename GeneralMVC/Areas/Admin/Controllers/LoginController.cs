@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace GeneralMVC.Areas.Admin.Controllers
 {
 
+
+
+    [Route("admin/login")]
     /// <summary>
     /// 后台管理登录
     /// </summary>
