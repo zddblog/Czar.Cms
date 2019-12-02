@@ -26,7 +26,7 @@ namespace GeneralMVC
             services.AddMvc();
             services.AddDbContext<GeneralDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Defaultconnection")));
             services.AddAuthentication("General").AddCookie(o=>{
-                o.LoginPath ="";
+                o.LoginPath ="/Admin/Login/Index";
             });
 
             //单个注入

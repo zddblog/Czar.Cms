@@ -4,7 +4,7 @@ namespace General.Framework.Cotrollers.Admin
 {
 
     [AdminAuthFilter]
-    public class PublicAdminController:BaseController
+    public class PublicAdminController: AdminAreaController
     {
 
     }
