@@ -25,7 +25,9 @@ namespace GeneralMVC
             var constr = Configuration.GetConnectionString("Defaultconnection");
             services.AddMvc();
             services.AddDbContext<GeneralDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Defaultconnection")));
-            services.AddAuthentication();
+            services.AddAuthentication("General").AddCookie(o=>{
+                o.LoginPath ="";
+            });
 
             //单个注入
            // services.AddScoped<ICategoryService, CategoryService>();
@@ -57,6 +59,13 @@ namespace GeneralMVC
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+            });
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                  name: "areas",
+                  template: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                );
             });
         }
     }
