@@ -23,6 +23,8 @@
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="wwwroot\mustache\app\views\pages\partials\_shared\" />
+    <Folder Include="wwwroot\mustache\php\_cache\" />
   </ItemGroup>
 
 </Project>
