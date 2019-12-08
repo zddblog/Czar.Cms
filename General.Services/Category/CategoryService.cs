@@ -1,6 +1,4 @@
 ﻿using General.Core.Data;
-using General.Entities.Category;
-using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 
 namespace General.Services.Category
